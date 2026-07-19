@@ -85,26 +85,19 @@ OPENAI_API_KEY=sk-your-actual-key-here
 ## Run
 
 ```bash
-python email_humanizer.py
+python email_humanizer_agent.py
 ```
 
 You'll see an interactive prompt:
 
 ```
-============================================================
-  EMAIL HUMANIZER AGENT
-  Powered by LangChain + OpenAI
-============================================================
-
-Describe the email you want to write, and the agent will
-create a natural, human-sounding email for you.
-
-Type 'quit' to exit.
+EMAIL HUMANIZER AGENT (LangChain + OpenAI)
+Describe the email you want to write. Type 'quit' to exit.
 
 Your email idea:
 ```
 
-Type your email idea (e.g., `thank my team for finishing the project on time`) and the agent will generate a humanized email. You'll also see detailed logs showing the agent's reasoning and tool calls.
+Type your email idea (e.g., `thank my team for finishing the project on time`) and the agent will generate a humanized email. You'll also see a log line for each tool the agent calls.
 
 ## Example
 
@@ -138,15 +131,15 @@ Best,
 
 ```
 .
-├── email_humanizer.py   # Main agent code (fully commented)
-├── requirements.txt     # Python dependencies
-├── .env.example         # API key template
-├── .gitignore           # Keeps secrets and venv out of git
-└── README.md            # This file
+├── email_humanizer_agent.py   # Main agent code
+├── requirements.txt           # Python dependencies
+├── .env.example               # API key template
+├── .gitignore                 # Keeps secrets and venv out of git
+└── README.md                  # This file
 ```
 
 ## Tech Stack
 
 - [LangChain](https://python.langchain.com/) - Framework for building LLM applications
-- [OpenAI GPT-4o-mini](https://platform.openai.com/) - The LLM powering the agent
+- [OpenAI GPT-4.1-mini](https://platform.openai.com/) - The LLM powering the agent
 - [python-dotenv](https://pypi.org/project/python-dotenv/) - Environment variable management
