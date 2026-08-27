@@ -49,7 +49,7 @@ Your repo must contain:
 
 ---
 
-### 1. Srinath Sreedharan — Article Simplifier Agent
+### 1. nisargkadam23@gmail.com — Article Simplifier Agent
 
 **Use Case:** A user pastes a long news article or technical write-up. The agent first produces a concise summary, then re-explains it in ultra-simple language anyone can understand.
 
@@ -67,7 +67,7 @@ Your repo must contain:
 
 ---
 
-### 2. Sharath R N — Commit Message & Changelog Agent
+### 2. vasentsethia@gmail.com — Commit Message & Changelog Agent
 
 **Use Case:** A developer pastes a raw git diff or a rough description of code changes. The agent analyses what changed and then writes a clean commit message and a changelog entry.
 
@@ -85,7 +85,7 @@ Your repo must contain:
 
 ---
 
-### 3. Rituparna Hazra — Blog Post Writer Agent
+### 3. Korde.sachin@gmail.com — Blog Post Writer Agent
 
 **Use Case:** A user provides a blog topic and target keywords. The agent creates an SEO-friendly outline and then expands it into a complete blog post.
 
@@ -103,7 +103,7 @@ Your repo must contain:
 
 ---
 
-### 4. Suganya Krishnasamy — Plant Care Advisor Agent
+### 4. Lokeshmargana9@Gmail.com — Plant Care Advisor Agent
 
 **Use Case:** A user describes a plant they own and the problems it's showing (yellow leaves, drooping, spots), along with its living conditions. The agent diagnoses what's wrong and then builds a week-by-week care and recovery plan.
 
@@ -121,7 +121,7 @@ Your repo must contain:
 
 ---
 
-### 5. Karthika S — FAQ Generator Agent
+### 5. tadikondavishnu1@gmail.com — FAQ Generator Agent
 
 **Use Case:** A user pastes a product or service description. The agent anticipates the questions real customers would ask and then writes clear, friendly FAQ answers.
 
@@ -139,7 +139,7 @@ Your repo must contain:
 
 ---
 
-### 6. Prem K Sundar — Debate Coach Agent
+### 6. rohanjs94blr@gmail.com — Debate Coach Agent
 
 **Use Case:** A user provides a debate topic and which side they must argue. The agent builds their strongest arguments and then prepares them for the opponent's attacks.
 
@@ -157,7 +157,7 @@ Your repo must contain:
 
 ---
 
-### 7. Sajjan Kanjaguli — Trip Packing Assistant Agent
+### 7. thumati.ragavendrachary@gmail.com — Trip Packing Assistant Agent
 
 **Use Case:** A user shares their destination, travel dates/season, trip length, and planned activities. The agent analyses what the trip demands and then produces a complete packing checklist.
 
@@ -175,7 +175,7 @@ Your repo must contain:
 
 ---
 
-### 8. Vivek Jadhav — User Story Generator Agent
+### 8. kedarpuja.239@gmail.com — User Story Generator Agent
 
 **Use Case:** A user describes a product feature idea in plain language. The agent converts it into proper agile user stories and then writes testable acceptance criteria for each.
 
@@ -193,7 +193,7 @@ Your repo must contain:
 
 ---
 
-### 9. Ankit Pandey — README Generator Agent
+### 9. hemanthhppl@gmail.com — README Generator Agent
 
 **Use Case:** A developer pastes their project's main code file or a description of what their project does. The agent analyses the project and then writes a polished, complete README.
 
@@ -211,7 +211,7 @@ Your repo must contain:
 
 ---
 
-### 10. Piyush Tilara — Brand Name & Tagline Agent
+### 10. vishalghume.ai@gmail.com — Brand Name & Tagline Agent
 
 **Use Case:** A user describes their new business or product idea. The agent generates strong brand name options and then crafts a tagline and elevator pitch for the best one.
 
@@ -229,7 +229,7 @@ Your repo must contain:
 
 ---
 
-### 11. Mohit Luthra — Performance Review Writer Agent
+### 11. firdos.cs028@gmail.com — Performance Review Writer Agent
 
 **Use Case:** An employee pastes rough bullet points of what they did this year. The agent organises the accomplishments and then writes a polished self-review narrative.
 
@@ -244,96 +244,6 @@ Your repo must contain:
 - Output: A complete self-review ready to paste into a performance review form
 
 **System Prompt:** The agent acts as a career mentor who helps employees present their real work in its best, most honest light.
-
----
-
-### 12. Rahul Dusane — Incident Postmortem Writer Agent
-
-**Use Case:** An engineer pastes rough notes about a production incident. The agent reconstructs the timeline and impact, then writes a blameless postmortem document.
-
-**Tool 1 — `build_incident_timeline`**
-- Input: rough incident notes (alerts, chat snippets, what happened and when)
-- Task: Reconstruct an ordered timeline of events, identify the trigger, the impact (who/what was affected and for how long), and how it was resolved
-- Output: A structured timeline plus an impact summary
-
-**Tool 2 — `write_postmortem_doc`**
-- Input: the timeline and impact summary from Tool 1
-- Task: Write a blameless postmortem with sections for Summary, Timeline, Root Cause, Impact, What Went Well, What Went Wrong, and Action Items — focusing on systems, never on blaming people
-- Output: A complete postmortem document in Markdown
-
-**System Prompt:** The agent acts as a site reliability engineer who turns messy incident notes into clear, blameless postmortems that make systems stronger.
-
----
-
-### 13. Parth Kansara — Freelance Proposal Writer Agent
-
-**Use Case:** A freelancer pastes a client's job brief and a note about their own skills. The agent defines the scope and pricing structure, then writes a winning proposal.
-
-**Tool 1 — `define_scope_and_milestones`**
-- Input: the client's job brief + the freelancer's relevant skills and experience
-- Task: Break the job into clear deliverables and milestones, estimate effort per milestone, and suggest a pricing structure (fixed / hourly / per-milestone)
-- Output: A scoped breakdown with deliverables, milestones, and a suggested pricing approach
-
-**Tool 2 — `write_proposal`**
-- Input: the scoped breakdown from Tool 1 + the freelancer's background
-- Task: Write a persuasive proposal — a personalised opening that shows understanding of the client's problem, the proposed approach, deliverables and timeline, and a clear next step
-- Output: A ready-to-send freelance proposal
-
-**System Prompt:** The agent acts as a freelance business coach who writes proposals that win clients by showing understanding, not desperation.
-
----
-
-### 14. Daryl Aw — Localization & Culture Adapter Agent
-
-**Use Case:** A user provides text (marketing copy, app message, or announcement) plus a target language and country. The agent translates it and then adapts it culturally so it lands naturally with local readers.
-
-**Tool 1 — `translate_text`**
-- Input: the source text + target language and country (e.g., "Japanese for Japan", "Spanish for Mexico")
-- Task: Produce an accurate, natural translation that preserves the original meaning and intent
-- Output: The translated text with notes on any phrases that had no direct equivalent
-
-**Tool 2 — `adapt_for_culture`**
-- Input: the translation from Tool 1 + the target country
-- Task: Adjust idioms, formality level, humour, examples, and references so the text feels written *for* that culture, not just translated into its language — flagging anything that could be confusing or offensive locally
-- Output: The final localized text plus a short list of cultural adaptations made and why
-
-**System Prompt:** The agent acts as a localization specialist who makes content feel native in every market, not just translated.
-
----
-
-### 15. Akshaykumar More — Meeting Agenda Planner Agent
-
-**Use Case:** A user describes an upcoming meeting — its goal, attendees, and duration. The agent designs a focused agenda and then time-boxes it with preparation prompts for attendees. (This is about planning a meeting *before* it happens — not summarizing notes afterwards.)
-
-**Tool 1 — `design_agenda`**
-- Input: meeting goal, attendee roles, and total duration
-- Task: Define the discussion items needed to reach the goal, order them logically, and identify which attendee should lead each item — cutting anything that doesn't serve the goal
-- Output: An ordered agenda with an owner and desired outcome per item
-
-**Tool 2 — `timebox_and_prep`**
-- Input: the agenda from Tool 1 + the meeting duration
-- Task: Allocate minutes to each item (leaving buffer for decisions), and write a short pre-read note with 1–2 questions each attendee should think about beforehand
-- Output: A time-boxed agenda plus a ready-to-send pre-meeting prep message
-
-**System Prompt:** The agent acts as a chief of staff who designs meetings that start on time, stay on track, and end with decisions.
-
----
-
-### 16. Bharat Chhabriya — 30-60-90 Day Plan Agent
-
-**Use Case:** A user shares a job role they're about to start and a short description of the company. The agent analyses what success looks like in that role and then builds a concrete 30-60-90 day onboarding plan.
-
-**Tool 1 — `analyze_role_expectations`**
-- Input: the job title, key responsibilities, and a short company description
-- Task: Identify what success looks like in this role — the skills to demonstrate, relationships to build, systems to learn, and early wins to target
-- Output: A role-success profile covering learning priorities, key stakeholders, and candidate early wins
-
-**Tool 2 — `build_30_60_90_plan`**
-- Input: the role-success profile from Tool 1
-- Task: Create a phased plan — Days 1–30 (learn), Days 31–60 (contribute), Days 61–90 (lead) — with specific goals, actions, and a measurable outcome for each phase
-- Output: A complete 30-60-90 day plan, one section per phase
-
-**System Prompt:** The agent acts as an executive onboarding coach who helps new hires make a strong, structured impact in their first 90 days.
 
 ---
 
