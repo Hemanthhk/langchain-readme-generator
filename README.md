@@ -1,34 +1,46 @@
-# Email Humanizer - LangChain Single Agent Project
+# README Generator - LangChain Single Agent Project
 
-A beginner-friendly project that teaches you how to build a **single agent** using **LangChain + OpenAI**. The agent takes a brief email idea and generates a natural, human-sounding email.
+A beginner-friendly project that teaches you how to build a **single agent** using **LangChain + OpenAI**. This agent can take any of the following:
+
+- a short project description
+- a main code file path
+- a project folder path
+
+and generates a polished, ready-to-use `README.md` for that project, saving it in the correct project directory.
 
 ## What You'll Learn
 
-- How LangChain works (LLMs, prompts, tools, agents)
-- How to create tools using the `@tool` decorator
-- How an agent decides which tools to call and in what order
-- How `PromptTemplate` shapes LLM output
-- How the agent's tool-calling loop works (think -> act -> observe -> repeat)
+- How to design a two-step agent workflow
+- How to use `PromptTemplate` to shape LLM output
+- How to build reusable tools with the `@tool` decorator
+- How `create_agent` connects tools and instructions together
+- How to convert raw project info into clean documentation
 
 ## How It Works
 
 ```
-User's email idea
+User provides project description, code file, or project folder
        |
        v
-  [Agent thinks: "I need to draft an email first"]
+  [Input detection] --> identifies whether the input is text, a file, or a folder
        |
        v
-  [Tool: draft_email] --> creates a formal, structured email
+  [Agent thinks: "I need to understand the project first"]
        |
        v
-  [Agent thinks: "Now I should humanize this draft"]
+  [Tool: analyze_project] --> extracts purpose, features, stack, setup, and users
        |
        v
-  [Tool: humanize_email] --> rewrites it to sound natural and warm
+  [Agent thinks: "Now I should draft the README"]
        |
        v
-  Final humanized email returned to user
+  [Tool: write_readme] --> creates a full Markdown README
+       |
+       v
+  [Auto-save] --> writes README.md in the relevant project directory
+       |
+       v
+  Final README returned to the user
 ```
 
 ## Prerequisites
@@ -41,7 +53,7 @@ User's email idea
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/NisargKadam/Langchain_sample_project.git
+git clone https://github.com/your-username/Langchain_sample_project.git
 cd Langchain_sample_project
 ```
 
@@ -76,66 +88,141 @@ Copy the example env file and add your real key:
 cp .env.example .env
 ```
 
-Open `.env` and replace the placeholder with your actual OpenAI API key:
+Open `.env` and replace the placeholder:
 
-```
+```env
 OPENAI_API_KEY=sk-your-actual-key-here
 ```
 
 ## Run
 
 ```bash
-python email_humanizer_agent.py
+python readme_generator_agent.py
 ```
 
-You'll see an interactive prompt:
+You will see a prompt like this:
 
-```
-EMAIL HUMANIZER AGENT (LangChain + OpenAI)
-Describe the email you want to write. Type 'quit' to exit.
+```text
+README GENERATOR AGENT (LangChain + OpenAI)
+Paste a project description, a main code file path, a project folder path, or type 'quit' to exit.
 
-Your email idea:
-```
-
-Type your email idea (e.g., `thank my team for finishing the project on time`) and the agent will generate a humanized email. You'll also see a log line for each tool the agent calls.
-
-## Example
-
-**Input:**
-```
-thank my team for finishing the project on time
+Project description / code path / folder path:
 ```
 
-**Output:**
+The agent accepts:
+
+- direct project descriptions
+- a file path such as `C:\project\main.py`
+- a folder path such as `C:\project_folder`
+
+It then generates the README and saves it as `README.md` in the same directory as the project source or folder.
+
+## Sample Input to Paste
+
+You can paste the contents of the file [README_GENERATOR_sample_input.txt](README_GENERATOR_sample_input.txt), or use a project file/folder path directly. The examples below show both options.
+
+### Option 1: Paste a project description
+
+You can copy the text below directly into the prompt.
+
+```text
+Project Name: TaskFlow Manager
+
+TaskFlow Manager is a lightweight Python CLI application for managing personal tasks and daily priorities. Users can add tasks, mark them as complete, view pending tasks, and filter them by category or deadline. The project is meant for individuals who want a simple local productivity tool without needing a heavy database or web app.
+
+Core features:
+- Add new tasks with title, description, category, and due date
+- Mark tasks as complete
+- View all tasks or only incomplete tasks
+- Sort tasks by priority or deadline
+- Save tasks to a JSON file for persistence
+- Search tasks by keyword
+
+Tech stack:
+- Python 3.10+
+- Standard library only (json, datetime, pathlib)
+- Optional CLI library: argparse
+
+How it works:
+- The app loads tasks from a local JSON file when it starts
+- Users interact with the command line to create, complete, or list tasks
+- Changes are saved back to the file automatically
+
+Target users:
+- Students
+- Freelancers
+- Busy professionals who want a simple task organizer
+
+Install and run:
+- Create a virtual environment
+- Install requirements
+- Run python app.py
 ```
-Subject: Huge Thanks for Your Amazing Work on the Project!
 
-Hey Team,
+### Option 2: Use a file or folder path
 
-I hope you're all doing well! I just wanted to take a minute to say a big
-thank you for all the hard work you put into getting the project done on time.
-Your dedication and teamwork really made a difference, and I can't tell you
-how much I appreciate it.
-
-Each of you brought something special to the table, and I'm so proud to be
-part of such a talented group. Let's keep this momentum going and continue
-to achieve great things together!
-
-Thanks again for everything!
-
-Best,
-[Your Name]
+```text
+C:\Users\YourName\Desktop\TaskFlowManager
 ```
+
+or
+
+```text
+C:\Users\YourName\Desktop\TaskFlowManager\app.py
+```
+
+The agent reads that project and saves a generated `README.md` in that same directory.
+
+### Example: project folder flow
+
+Suppose you have a project folder like this:
+
+```text
+C:\Users\YourName\Desktop\TaskFlowManager
+├── app.py
+├── utils.py
+├── requirements.txt
+└── README.md   # generated later by the agent
+```
+
+When you enter:
+
+```text
+C:\Users\YourName\Desktop\TaskFlowManager
+```
+
+The agent detects the folder, analyzes the files inside it, writes a detailed README, and saves it as:
+
+```text
+C:\Users\YourName\Desktop\TaskFlowManager\README.md
+```
+
+## Example Output Preview
+
+The agent will generate README sections like:
+
+- Project Title
+- Overview
+- Features
+- Installation
+- Usage
+- Configuration
+- Tech Stack
+- Project Structure
+- Target Audience
+- License
 
 ## Project Structure
 
 ```
 .
-├── email_humanizer_agent.py   # Main agent code
-├── requirements.txt           # Python dependencies
-├── .env.example               # API key template
-├── .gitignore                 # Keeps secrets and venv out of git
-└── README.md                  # This file
+├── readme_generator_agent.py   # Main README generator agent
+├── README_GENERATOR.md         # Project documentation for this agent
+├── README_GENERATOR_sample_input.txt  # Sample input for testing the agent
+├── requirements.txt            # Python dependencies
+├── .env.example                # API key template
+├── .gitignore                  # Keeps secrets and venv out of git
+├── README.md                   # Readme generator project output
 ```
 
 ## Tech Stack
@@ -143,3 +230,10 @@ Best,
 - [LangChain](https://python.langchain.com/) - Framework for building LLM applications
 - [OpenAI GPT-4.1-mini](https://platform.openai.com/) - The LLM powering the agent
 - [python-dotenv](https://pypi.org/project/python-dotenv/) - Environment variable management
+- [Python](https://www.python.org/) - Main language used to build the app
+
+## Notes
+
+This project is useful for developers who want to turn rough project ideas, source files, or entire folders into professional documentation without writing a README from scratch.
+
+The latest version also handles auto-save and project-path detection so the generated README lands exactly where the project lives.
