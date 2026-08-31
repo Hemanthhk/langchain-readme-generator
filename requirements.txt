@@ -1,3 +1,4 @@
+#Libraries required
 langchain>=0.3.0
 langchain-openai>=0.3.0
 openai>=1.0.0
